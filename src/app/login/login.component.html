@@ -1,0 +1,35 @@
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+
+    <br/>
+
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email" name="email"[(ngModel)]="email" required>
+        </mat-form-field><br/>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Password" name="password"[(ngModel)]="password"type="password" required>
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-raised-button (click)="onlogin()" color="primary">LOGIN</button>&nbsp;
+      <button mat-raised-button routerLink="/register" color="warn">REGISTER</button>
+    </form>
+  </mat-card>
+
+</div>
+
+

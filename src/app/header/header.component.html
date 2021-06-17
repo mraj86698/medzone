@@ -1,0 +1,75 @@
+<mat-toolbar color="primary" class="sticky">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div fxLayout="row">
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span class="logo">MEDZONE</span>
+      </button>
+      
+        <div *ngIf="!deviceXs" fxLayout="row">
+          <button mat-button routerLink="MRlogin/home"><mat-icon>home</mat-icon>Home</button>
+          <button
+        *ngIf="!deviceXs"
+        mat-button
+        [matMenuTriggerFor]="menu"
+        fxLayoutAlign="end">Category</button>  
+        </div>
+        <!-- <button mat-button><mat-search-bar></mat-search-bar></button> -->
+    </div>
+    
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div *ngIf="!deviceXs" fxLayout="row">
+      <button mat-button routerLink="MRlogin/search"(keypress)="onSearch()"[(ngModel)]="search"><mat-search-bar></mat-search-bar></button>
+    </div>
+    <!-- <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> -->
+    <!-- <div></div>
+    <div></div> -->
+    <button mat-button routerLink="/MRlogin/cart"><mat-icon>shopping_cart</mat-icon></button>
+   <button *ngIf="!isLoggedIn" mat-button routerLink="login"><mat-icon>person</mat-icon>Login</button>
+     
+      <div *ngIf="!deviceXs" >
+      <button *ngIf="isLoggedIn" mat-button [matMenuTriggerFor]="login" 
+        fxLayoutAlign="end"><mat-icon>person</mat-icon>
+        {{username}}
+      </button> 
+    </div> 
+     
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="space-between end">
+    <button mat-button routerLink=""><mat-icon>home</mat-icon>Home</button>
+    
+    <div *ngIf="deviceXs" fxLayout="row">
+      
+      <button
+    *ngIf="deviceXs"
+    mat-button
+    [matMenuTriggerFor]="menu"
+    fxLayoutAlign="end">Category</button>  
+    </div>
+    <button mat-button><mat-search-bar></mat-search-bar></button>
+  
+  </mat-toolbar-row>
+  
+</mat-toolbar>
+<!-- Menu Items -->
+<mat-menu #menu="matMenu" fxLayoutAlign="end">
+  <button mat-menu-item routerLink="allopathic">Allopathic</button>
+  <button mat-menu-item routerLink="ayurvedic">Ayurvedic</button>
+  <button mat-menu-item>Homeopathic</button>
+  </mat-menu>
+   <mat-menu #login="matMenu" fxLayoutAlign="end">
+    <button  mat-menu-item>Profile</button>
+    <button routerLink="MRlogin/orders" mat-menu-item>Order</button>
+    <button (click)="onLogout()" mat-menu-item>Logout</button>
+    </mat-menu> 
+  

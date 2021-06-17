@@ -1,0 +1,71 @@
+<br><br>
+<br>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title >Delivery Information</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form">
+
+      <mat-card-content>
+        <br/>
+        <mat-form-field class="full-width">
+           <mat-label> Full Name</mat-label>
+           <input  matInput   type="text" [(ngModel)]="fullname"  name="fullname"required>
+           
+        </mat-form-field><br/>
+        <mat-form-field class="full-width">
+          <mat-label>Phone Number</mat-label>
+          <input  matInput  [(ngModel)]="phoneno" type="number"  name="phoneno"required>
+       </mat-form-field><br/>
+       <mat-form-field class="full-width">
+        <mat-label>Order Date</mat-label>
+        <input matInput [matDatepicker]="picker" [min]="minDate"[max]="maxDate" [(ngModel)]="OrderDate" name="OrderDate"  required >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+     </mat-form-field><br/>
+     <mat-form-field class="full-width">
+      <mat-label>Delivery Date</mat-label>
+      <input matInput [matDatepicker]="picker1"  [(ngModel)]="deliveryDate" name="deliveryDate" required >
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+   </mat-form-field><br/>
+              
+  <mat-form-field class="full-width">
+    <mat-label>Payment Mode</mat-label>
+    <mat-select [(ngModel)]="PaymentMode">
+      <mat-option *ngFor="let team of teams" [value]="team.name">
+        {{team.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+        <mat-form-field class="full-width">
+           <mat-label>State</mat-label>
+           <input  matInput   type="text" [(ngModel)]="state" name="state" required>
+        </mat-form-field><br/>
+        <mat-form-field class="full-width">
+           <mat-label>City</mat-label>
+           <input  matInput  type="text" [(ngModel)]="city" name="city" required>
+        </mat-form-field><br/>
+        <mat-form-field class="full-width">
+           <mat-label>Pincode</mat-label>
+          <input  matInput   [(ngModel)]="pincode" type="number" name="pincode" required>
+       </mat-form-field><br/>
+        
+        <mat-form-field class="full-width">
+           <mat-label>Address</mat-label>
+           <input  matInput   [(ngModel)]="address" type="text"name="address"required>
+        </mat-form-field><br/>
+        
+
+      </mat-card-content>
+
+     
+      <button mat-raised-button (click)="onadd()"  color="primary">Confirm Order</button>&nbsp;
+      <button mat-raised-button routerLink="/MRlogin/cart" color="warn">Cancel</button> 
+
+    </form>
+  </mat-card>
+</div>
+
